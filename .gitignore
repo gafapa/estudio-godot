@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.taste-skill/
+.validation/
+site/downloads/
+.DS_Store
+Thumbs.db

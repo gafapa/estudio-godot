@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A local Godot 4 studio skill for Codex and Claude Code. From a small playable idea to scoped delivery, independent review and quiet headless tests.">
+  <meta name="theme-color" content="#06525c">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; script-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>estudio-godot — A local studio for Godot</title>
+  <link rel="canonical" href="https://gafapa.github.io/estudio-godot/">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="frame">
+    <a class="wordmark" href="./" aria-label="estudio-godot home">estudio-godot</a>
+    <nav aria-label="Main navigation"><a href="#install">Install</a><a href="#workflow">Workflow</a><a href="https://github.com/gafapa/estudio-godot">GitHub</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero frame" aria-labelledby="title">
+      <h1 id="title">A studio<br>for Godot.</h1>
+      <div class="hero-bottom"><p>A local development skill for Codex and Claude Code. Start with a playable idea. Build in small steps. Verify what ships.</p><a class="button" href="downloads/estudio-godot.zip" download>Get the skill <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="frame install" id="install" aria-labelledby="install-title">
+      <div class="section-intro"><h2 id="install-title">Make it local.</h2><p>Clone the skill into your Codex skills folder, then invoke <code>$estudio-godot</code>. You stay the Director; the main session coordinates production.</p></div>
+      <div class="setup-grid">
+        <div class="code-block"><div class="code-heading"><h3>Install the skill</h3><button type="button" data-copy="clone-code">Copy command</button></div><pre><code id="clone-code">git clone https://github.com/gafapa/estudio-godot.git "$HOME/.codex/skills/estudio-godot"</code></pre><p>Already have that folder? Update its existing Git checkout or compare and merge your local copy.</p></div>
+        <div class="requirements"><h3>Bring your tools</h3><ul><li>Godot 4, installed locally</li><li>Python 3.10+, Git and Bash</li><li>Compatible GdUnit4 for engine tests</li><li>A host that supports your chosen agents</li></ul><p>The skill installs a project workflow. It does not download Godot, addons or model access.</p></div>
+      </div>
+      <div class="setup-grid project-setup">
+        <div><h3>Define the project</h3><p>Save a configuration as <code>config.json</code>. Use your actual installed Godot version; this is a 2D example.</p><pre><code>{
+  "game": "My Game",
+  "godot_version": "4.7.2",
+  "dimension": "2D",
+  "platforms": "PC",
+  "mode": "automatic"
+}</code></pre></div>
+        <div class="code-block"><div class="code-heading"><h3>Preview, then install</h3><button type="button" data-copy="setup-code">Copy commands</button></div><pre><code id="setup-code">python scripts/instalar.py \
+  --config config.json \
+  --destination ../my-game --dry-run
+
+python scripts/instalar.py \
+  --config config.json \
+  --destination ../my-game</code></pre><p>Run from the cloned skill folder. Existing project files and hooks are preserved. Personalize the result before production.</p></div>
+      </div>
+      <p class="section-link"><a href="https://github.com/gafapa/estudio-godot/blob/main/SKILL.md">Read the complete skill instructions ↗</a><a href="downloads/estudio-godot.zip.sha256">Download the SHA-256 checksum ↗</a></p>
+    </section>
+
+    <section class="workflow frame" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-intro"><h2 id="workflow-title">Playable, then better.</h2><p>The prototype tests the central mechanic before the project grows. Milestones carry it through a vertical slice, alpha, beta and authorized release.</p></div>
+      <ol class="production">
+        <li><h3>Research &amp; define</h3><p>Choose references, player decisions and a small prototype. Keep the design brief enough to guide the next change.</p></li>
+        <li><h3>Build a small slice</h3><p>Assign scoped tickets with clear ownership. Use focused tests during development and complete tests before delivery.</p></li>
+        <li><h3>Review the evidence</h3><p>Review the exact committed SHA. Reuse matching machine results; independently inspect and reproduce the required behavior.</p></li>
+        <li><h3>Integrate &amp; play</h3><p>Integrate sequentially, validate the integrated commit afresh and inspect what changed. Playtest the actual loop.</p></li>
+      </ol>
+      <div class="team"><h3>Seventeen roles.<br> One shared contract.</h3><div><p>Research, design, architecture, gameplay, UI, technical art, sound, content, balance, platform work, QA, code review, design review, art direction, gameplay review, playtesting and release preparation.</p><p>Codex profiles use Sol 6.1 and Luna with medium or low reasoning. Low- and medium-risk reviews can share one qualified independent reviewer. Critical work keeps separate QA, technical review and adversarial checks.</p><a href="https://github.com/gafapa/estudio-godot/blob/main/assets/plantilla/docs/AGENTES.md">Explore roles and quality gates ↗</a></div></div>
+    </section>
+
+    <section class="evidence" id="evidence" aria-labelledby="evidence-title"><div class="frame">
+      <div class="section-intro"><h2 id="evidence-title">Proof before approval.</h2><p>Explicit evidence, with limits attached. The local checks below were recorded on 24 October 2026.</p></div>
+      <div class="table-wrap"><table><caption>Recorded validation of the studio skill</caption><thead><tr><th scope="col">Check</th><th scope="col">What was verified</th></tr></thead><tbody>
+        <tr><th scope="row">49 regression checks</th><td>Installation, model profiles, commit isolation, cache invalidation and native Windows helper-process containment. Engine scenarios in this suite are simulated.</td></tr>
+        <tr><th scope="row">2 real Godot tests</th><td>The generated harness passed with Godot 4.7.2 and GdUnit4 6.2.2 in an isolated headless fixture.</td></tr>
+        <tr><th scope="row">Owned engines closed</th><td>Import and suite logs confirmed closure and five-second lease-free gaps. The final Godot process inventory was empty.</td></tr>
+        <tr><th scope="row">Qualification still matters</th><td>These checks do not establish rendered quality, audible quality, exports, device behavior or the quality of another game.</td></tr>
+      </tbody></table></div>
+      <a href="https://github.com/gafapa/estudio-godot/blob/main/docs/validation-2026-10-24.md">Read the validation record ↗</a>
+    </div></section>
+
+    <section class="frame quiet" aria-labelledby="quiet-title"><h2 id="quiet-title">Leave room to work.</h2><div><p>Engine tests run headless and silent where suitable. Each bounded run closes its owned process tree, verifies closure, releases its machine lease and pauses for five seconds.</p><p>Other applications get a turn. Existing engines are left untouched. A genuine rendering check can use a bounded offscreen capture; headless results never stand in for visual proof.</p><a href="https://github.com/gafapa/estudio-godot/blob/main/assets/plantilla/docs/guides/quiet-godot-tests.md">Read the quiet testing policy ↗</a></div></section>
+
+    <section class="frame reading" aria-labelledby="details-title"><h2 id="details-title">Before you begin.</h2><div class="answers">
+      <details><summary>Can it work on an existing game?</summary><p>Yes. The workflow inspects the project and preserves appropriate architecture, files and hooks. Review preserved entries and merge intended updates rather than reinstalling over your work.</p></details>
+      <details><summary>Does it run a studio automatically?</summary><p>The main session coordinates available tools and authorized agents. Model access and delegation depend on your host. A session hook is a reminder, not a scheduler; the skill does not continue after a closed session.</p></details>
+      <details><summary>What stays under my control?</summary><p>The game's vision, scope and creative direction. Publication, spending and destructive changes require existing or newly given authorization. Documentation and code are English; player-facing localization follows the game.</p></details>
+      <details><summary>How do faster checks stay useful?</summary><p>Focused checks shorten development feedback. Matching successful machine evidence can be reused for up to 24 hours. Ownership checks rerun, critical delivery and integrated commits use fresh validation, and reviewers retain independent judgment.</p></details>
+    </div></section>
+  </main>
+  <footer class="frame"><h2>Your next playable.</h2><div><a href="https://github.com/gafapa/estudio-godot">Open the repository ↗</a><p>estudio-godot · Built by <a href="https://github.com/gafapa">Pablo Gallego</a></p><p>Local fonts: Barlow and Barlow Condensed, <a href="fonts/OFL-Barlow.txt">SIL Open Font License</a>. No analytics or third-party runtime requests.</p></div></footer>
+  <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>

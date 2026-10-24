@@ -1,0 +1,17 @@
+.godot/
+*.translation
+export_credentials.cfg
+/android/build/
+
+/build/
+/exports/
+
+/tools/godot-api/
+/tools/out/
+*.tmp
+
+.DS_Store
+Thumbs.db
+
+.claude/worktrees/
+__pycache__/

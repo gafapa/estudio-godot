@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Git supplies one ref update per line. Check each outgoing tip, not current HEAD.
+set -eu
+ROOT="$(git rev-parse --show-toplevel)"
+FAILED=0
+SEEN=" "
+while read -r LOCAL_REF LOCAL_SHA REMOTE_REF REMOTE_SHA; do
+  [ -n "${LOCAL_SHA:-}" ] || { echo 'Malformed pre-push input' >&2; exit 2; }
+  [[ "$LOCAL_SHA" =~ ^0+$ ]] && continue
+  SHA="$(git rev-parse --verify "${LOCAL_SHA}^{commit}")" || { echo "Cannot validate $LOCAL_REF as a commit" >&2; exit 2; }
+  case "$SEEN" in *" $SHA "*) continue ;; esac
+  SEEN="$SEEN$SHA "
+  bash "$ROOT/tools/ci.sh" --quick --commit "$SHA" || FAILED=1
+done
+exit "$FAILED"
