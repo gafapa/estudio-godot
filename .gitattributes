@@ -9,3 +9,4 @@
 *.js text eol=lf
 assets/plantilla/tools/hooks/pre-push text eol=lf
 *.ttf binary
+site/fonts/OFL*.txt -whitespace
